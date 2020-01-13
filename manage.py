@@ -1,5 +1,5 @@
-
 from app import create_app, db
+from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager, Server
 from app.models import User, Role
 from config import Config
@@ -27,4 +27,4 @@ def make_shell_context():
     return dict(app = app,db = db,User = User, Role = Role )
 
 if __name__ == '__main__':
-    manager.run(debbub=True)
+    manager.run()
