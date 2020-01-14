@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
-from config import config_options
+from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
@@ -12,7 +12,7 @@ bootstrap = Bootstrap()
 db = SQLAlchemy()
 
 
-def create_app(config_name):
+def create_app():
     app = Flask(__name__)
 
 
@@ -24,8 +24,7 @@ def create_app(config_name):
 
    # Creating the app configurations
 
-    app.config.from_object(config_options[config_name])
-    config_options[config_name].init_app(app)
+    app.config.from_object(Config)
 
     # Initializing flask extensions
     bootstrap.init_app(app)

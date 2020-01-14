@@ -1,14 +1,18 @@
 from app import create_app, db
 # from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager, Server
-from app.models import User, Role
+from app.models import User
 from config import Config
 from flask_migrate import Migrate, MigrateCommand
+from flask import Flask, render_template, redirect, request
+from flask_sqlalchemy import SQLAlchemy
+import os   
 
+from app import create_app  
 
-app = create_app('production')
+app = create_app()
 
-manager = Manager(app)
+manager = Manager(app, db)
 migrate = Migrate(app, db)
 
 manager.add_command('server', Server)
@@ -24,7 +28,8 @@ def test():
 
 @manager.shell
 def make_shell_context():
-    return dict(app = app,db = db,User = User, Role = Role )
+    return dict(app = app,db = db,User = User, )
 
 if __name__ == '__main__':
     manager.run()
+    db.create_all()
