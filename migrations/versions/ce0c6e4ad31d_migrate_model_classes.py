@@ -1,8 +1,8 @@
-"""empty message
+"""migrate model classes
 
-Revision ID: f9a73f3cd47a
+Revision ID: ce0c6e4ad31d
 Revises: 
-Create Date: 2020-01-14 14:16:26.103053
+Create Date: 2020-01-15 09:31:38.428839
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f9a73f3cd47a'
+revision = 'ce0c6e4ad31d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,8 +28,9 @@ def upgrade():
     op.create_index(op.f('ix_comments_timestamp'), 'comments', ['timestamp'], unique=False)
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('title', sa.String(length=32), nullable=True),
     sa.Column('text', sa.String(length=140), nullable=True),
-    sa.Column('author', sa.String(length=32), nullable=True),
+    sa.Column('author', sa.Integer(), nullable=True),
     sa.Column('timestamp', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
@@ -49,8 +50,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('vote', sa.Integer(), nullable=True),
     sa.Column('user', sa.Integer(), nullable=False),
-    sa.Column('post', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['post'], ['posts.id'], ),
+    sa.Column('pitch', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['pitch'], ['posts.id'], ),
     sa.ForeignKeyConstraint(['user'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -58,8 +59,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('vote', sa.Integer(), nullable=True),
     sa.Column('user', sa.Integer(), nullable=False),
-    sa.Column('post', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['post'], ['posts.id'], ),
+    sa.Column('pitch', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['pitch'], ['posts.id'], ),
     sa.ForeignKeyConstraint(['user'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

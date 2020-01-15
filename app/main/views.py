@@ -152,8 +152,11 @@ def pitch():
             "timestamp":timestamp        
         }
         
-        new_pitch = Post(title=title, text=text, author=current_user, timestamp=timestamp)
-        new_pitch.save()
+        
+        pitch = Pitch(title=title, text=text, author=current_user, timestamp=timestamp)
+        pitch.save_pitch()
+        db.session.add(pitch)
+        db.session.commit()
 
         return redirect(url_for('main.index'))
     return render_template('pitch.html', pitch_form=pitch_form )

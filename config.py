@@ -5,7 +5,7 @@ class Config:
     general configuration
     '''
     # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:john@localhost/pitchapp'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DEBUG = True
     # SECRET_KEY = os.environ.get('SECRET_KEY')

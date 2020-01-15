@@ -9,8 +9,8 @@ class UpdateProfile(FlaskForm):
 
 
 class GeneralForm(FlaskForm):
-    post = StringField('Title', validators=[Required()])
-    body = TextAreaField('Post', validators=[Required()])
+    pitch = StringField('Title', validators=[Required()])
+    body = TextAreaField('Pitch', validators=[Required()])
     submit = SubmitField('Submit')
     
     
@@ -31,8 +31,8 @@ class GeneralReviewForm(FlaskForm):
 
 
 class SaleForm(FlaskForm):
-    post = StringField('Title', validators=[Required()])
-    body = TextAreaField('Post', validators=[Required()])
+    pitch = StringField('Title', validators=[Required()])
+    body = TextAreaField('Pitch', validators=[Required()])
     submit = SubmitField('Submit')
 
 
@@ -42,8 +42,8 @@ class SaleReviewForm(FlaskForm):
 
 
 class SeductionForm(FlaskForm):
-    post = StringField('Title', validators=[Required()])
-    body = TextAreaField('Post', validators=[Required()])
+    pitch = StringField('Title', validators=[Required()])
+    body = TextAreaField('Pitch', validators=[Required()])
     submit = SubmitField('Submit')
 
 
@@ -53,8 +53,8 @@ class SeductionReviewForm(FlaskForm):
 
 
 class MusicForm(FlaskForm):
-    post = StringField('Title', validators=[Required()])
-    body = TextAreaField('Post', validators=[Required()])
+    pitch = StringField('Title', validators=[Required()])
+    body = TextAreaField('Pitch', validators=[Required()])
     submit = SubmitField('Submit')
 
 
@@ -63,8 +63,8 @@ class MusicReviewForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class ProjectForm(FlaskForm):
-    post = StringField('Title', validators=[Required()])
-    body = TextAreaField('Post', validators=[Required()])
+    pitch = StringField('Title', validators=[Required()])
+    body = TextAreaField('Pitch', validators=[Required()])
     submit = SubmitField('Submit')
 
 
@@ -74,8 +74,8 @@ class ProjectReviewForm(FlaskForm):
 
 
 class InterviewForm(FlaskForm):
-    post = StringField('Title', validators=[Required()])
-    body = TextAreaField('Post', validators=[Required()])
+    pitch = StringField('Title', validators=[Required()])
+    body = TextAreaField('Pitch', validators=[Required()])
     submit = SubmitField('Submit')
 
 
@@ -85,8 +85,8 @@ class InterviewReviewForm(FlaskForm):
 
 
 class AdvertisementForm(FlaskForm):
-    post = StringField('Title', validators=[Required()])
-    body = TextAreaField('Post', validators=[Required()])
+    pitch = StringField('Title', validators=[Required()])
+    body = TextAreaField('Pitch', validators=[Required()])
     submit = SubmitField('Submit')
 
 

@@ -36,7 +36,7 @@ class User(UserMixin,db.Model):
 
 
 #Post, Comment, Upvote, Downvote
-class Post(db.Model):
+class Pitch(db.Model):
     __tablename__='posts'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(32))
@@ -45,9 +45,10 @@ class Post(db.Model):
     timestamp = db.Column(db.DateTime(), index=True)
 
     
-    def save(self):
+    def save_pitch(self):
         db.session.add(self)
         db.session.commit()
+        pass
 
     def delete(self):
         db.session.delete(self)
@@ -61,7 +62,7 @@ class Comment(db.Model):
     author = db.Column(db.String(32))
     timestamp = db.Column(db.DateTime(), index=True)
 
-    def save(self):
+    def save_comment(self):
         db.session.add(self)
         db.session.commit()
 
@@ -77,9 +78,9 @@ class Upvote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     vote = db.Column(db.Integer, default=0)
     user = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    post = db.Column(db.Integer, db.ForeignKey('posts.id'),nullable=False)
+    pitch = db.Column(db.Integer, db.ForeignKey('posts.id'),nullable=False)
 
-    def save(self):
+    def save_likes(self):
         db.session.add(self)
         db.session.commit()
 
@@ -98,11 +99,11 @@ class Downvote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     vote = db.Column(db.Integer, default=0)
     user = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    post = db.Column(db.Integer, db.ForeignKey('posts.id'),nullable=False)
+    pitch = db.Column(db.Integer, db.ForeignKey('posts.id'),nullable=False)
 
     
 
-    def save(self):
+    def save_dislikes(self):
         db.session.add(self)
         db.session.commit()
 
