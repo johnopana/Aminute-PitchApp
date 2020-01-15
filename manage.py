@@ -10,7 +10,7 @@ import os
 
 from app import create_app  
 
-app = create_app('production')
+app = create_app()
 
 manager = Manager(app, db)
 migrate = Migrate(app, db)
